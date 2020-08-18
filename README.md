@@ -46,3 +46,30 @@ class Post
   has_many :liked_users, through: :likes, source: :user
 end
 ```
+
+Domain model for Artists, Genres, Songs and SongGenres:
+
+```ruby
+class Artist < ActiveRecord::Base 
+  has_many :songs#, foreign_key: 'artist_id'
+  has_many :genres, through: :songs
+end
+
+class Genre < ActiveRecord::Base
+  has_many :song_genres
+  has_many :songs, through: :song_genres
+end
+
+class Song < ActiveRecord::Base
+  has_many :song_genres
+  has_many :genres, through: :song_genres
+  belongs_to :artist#, foreign_key: :artist_id, class_name: 'Artist', primary_key: 'id'
+end
+
+class SongGenre < ActiveRecord::Base
+  belongs_to :song
+  belongs_to :genre
+end
+```
+
+Add seed data
