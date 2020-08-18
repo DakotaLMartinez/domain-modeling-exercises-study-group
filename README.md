@@ -73,3 +73,21 @@ end
 ```
 
 Add seed data
+
+### Layers of an MVC application
+
+Dependencies (Gems/packages)
+
+Configuration (environment variables/other stuff in config folder)
+
+Database
+
+Models
+
+Views
+
+Controllers
+
+Routes
+
+
